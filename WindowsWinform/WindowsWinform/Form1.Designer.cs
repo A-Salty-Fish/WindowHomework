@@ -48,6 +48,7 @@
             this.outputTextBox.Location = new System.Drawing.Point(84, 64);
             this.outputTextBox.Multiline = true;
             this.outputTextBox.Name = "outputTextBox";
+            this.outputTextBox.ReadOnly = true;
             this.outputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.outputTextBox.Size = new System.Drawing.Size(534, 323);
             this.outputTextBox.TabIndex = 1;
@@ -70,6 +71,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "AsyButton";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -92,7 +94,8 @@
             this.Controls.Add(this.outputTextBox);
             this.Controls.Add(this.inputTextBox);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "实验一";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

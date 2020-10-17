@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -51,6 +53,102 @@ namespace WindowsWinform
         private void button3_Click(object sender, EventArgs e)
         {
             outputTextBox.Text = null;
+            cmdOutput = null;
+        }
+
+        //异步响应方式所需要的重定向输入输出流对象
+        public static Process cmdP;
+        public static StreamWriter cmdStreamInput;
+        private static StringBuilder cmdOutput = new StringBuilder("");
+
+        //自定义窗体消息
+        public const int TRAN_FINISHED = 0x500;
+
+        //SendMessage方法需要的handle值
+        public static IntPtr main_whandle;//主窗体
+        public static IntPtr text_whandle;//文本控件
+
+        //此函数重定向进程的输入输出
+        private void StartCmd(string cmdFile)
+        {
+            if (cmdP!=null)//已经创建过
+            {
+                if (!cmdP.HasExited)
+                {
+                    cmdP.Close();
+                }
+            }
+            cmdP = new Process();
+            //设定进程名
+            cmdP.StartInfo.FileName = cmdFile;
+            cmdP.StartInfo.CreateNoWindow = true;
+            cmdP.StartInfo.UseShellExecute = false;
+            //重定向输入输出流
+            cmdP.StartInfo.RedirectStandardOutput = true;
+            cmdP.StartInfo.RedirectStandardInput = true;
+            cmdOutput = new StringBuilder("");
+            //输出数据异步事件
+            cmdP.OutputDataReceived += new DataReceivedEventHandler(strOutputHandler);
+            //异步处理中通知进程已退出
+            cmdP.EnableRaisingEvents = true;
+            string strCmd = "ping " +
+                (inputTextBox.Text == null || inputTextBox.Text == "" ? "www.baidu.com" : inputTextBox.Text) +
+                " -n  9";
+            cmdP.Start();
+            cmdP.StandardInput.WriteLine(strCmd);
+            //重定向进程输入流
+            cmdStreamInput = cmdP.StandardInput;
+            //开始异步输出的读入
+            cmdP.BeginOutputReadLine();
+        }
+        //回调函数
+        private static void strOutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
+        {
+            //将每次输出产生的数据附加到结果字符串中
+            cmdOutput.Append(outLine.Data);
+            //换行
+            cmdOutput.Append("\r\n");
+            //设置输出文本框内容
+            SendMessage(main_whandle, TRAN_FINISHED, 0, 0);
+        }
+        //通知窗体更新数据的内核函数
+        [DllImport("User32.dll", EntryPoint = "SendMessage")]
+        private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+        [DllImport("User32.dll", EntryPoint = "RedrawWindow")]
+        public static extern bool RedrawWindow(IntPtr hWnd, IntPtr prect, IntPtr hrgnUpdate, GraphicsUnit flags);
+        public const int WM_VSCROLL = 0x0115;
+        public const int SB_BOTTOM = 0x0007;
+        public static int WM_SETREDRAW = 0x0B;
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            StartCmd("cmd.exe");
+        }
+        //窗体加载时获得窗体和文本框对象的handle值
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            main_whandle = this.Handle;
+            text_whandle = outputTextBox.Handle;
+        }
+
+        //重载窗体消息处理
+        protected override void DefWndProc(ref Message m)
+        {
+            switch(m.Msg)
+            {
+                case TRAN_FINISHED:
+                    SendMessage(text_whandle, WM_SETREDRAW, 0, 0);
+                    outputTextBox.Text = cmdOutput.ToString();
+                    SendMessage(text_whandle, WM_VSCROLL, SB_BOTTOM, 50);
+                    SendMessage(text_whandle, WM_SETREDRAW, 1, 0);
+                    RedrawWindow(text_whandle, IntPtr.Zero, IntPtr.Zero, (GraphicsUnit)(1 | 4 | 128));
+                    break;
+                default:
+                    base.DefWndProc(ref m);
+                    break;
+            }
         }
     }
 }
