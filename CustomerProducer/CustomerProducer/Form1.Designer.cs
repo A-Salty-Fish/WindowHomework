@@ -81,7 +81,7 @@
             this.BackThreadButton.Name = "BackThreadButton";
             this.BackThreadButton.Size = new System.Drawing.Size(132, 40);
             this.BackThreadButton.TabIndex = 2;
-            this.BackThreadButton.Text = "后台线程";
+            this.BackThreadButton.Text = "前、后台线程";
             this.BackThreadButton.UseVisualStyleBackColor = true;
             this.BackThreadButton.Click += new System.EventHandler(this.BackThreadButton_Click);
             // 
@@ -120,6 +120,7 @@
             this.outPutTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.outPutTextBox.Size = new System.Drawing.Size(960, 248);
             this.outPutTextBox.TabIndex = 1;
+            this.outPutTextBox.TextChanged += new System.EventHandler(this.outPutTextBox_TextChanged);
             // 
             // CusProButton
             // 
