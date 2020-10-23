@@ -90,5 +90,21 @@ namespace CustomerProducer
             outPutTextBox.SelectionStart = outPutTextBox.Text.Length; //Set the current caret position at the end
             outPutTextBox.ScrollToCaret(); //Now scroll it automatically
         }
+
+        private void JoinThreadButton_Click(object sender, EventArgs e)
+        {
+            Thread thread1 = new Thread(() =>
+            {
+                outPutTextBox.Text += "Before Joining" + "\r\n";
+                Thread.Sleep(2000);
+            });
+            Thread thread2 = new Thread(() =>
+            {
+                thread1.Join();
+                outPutTextBox.Text += "After Joining" + "\r\n";
+            });
+            thread1.Start();
+            thread2.Start();
+        }
     }
 }

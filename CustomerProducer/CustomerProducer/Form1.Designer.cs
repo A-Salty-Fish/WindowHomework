@@ -93,6 +93,7 @@
             this.JoinThreadButton.TabIndex = 3;
             this.JoinThreadButton.Text = "Join线程";
             this.JoinThreadButton.UseVisualStyleBackColor = true;
+            this.JoinThreadButton.Click += new System.EventHandler(this.JoinThreadButton_Click);
             // 
             // ManualResetButton
             // 
