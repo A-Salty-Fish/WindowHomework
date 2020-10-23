@@ -123,6 +123,7 @@
             this.CusProButton.TabIndex = 6;
             this.CusProButton.Text = "生产者消费者";
             this.CusProButton.UseVisualStyleBackColor = true;
+            this.CusProButton.Click += new System.EventHandler(this.CusProButton_Click);
             // 
             // outPutTextBox
             // 

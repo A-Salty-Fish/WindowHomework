@@ -42,7 +42,7 @@ namespace CustomerProducer
             thread.IsBackground = false;
             thread.Start();
         }
-
+        static AutoResetEvent BackFrontResetEvent = new AutoResetEvent(true);
         private void BackThreadButton_Click(object sender, EventArgs e)
         {
             Thread foregroundThread =
@@ -62,14 +62,18 @@ namespace CustomerProducer
         {
             for (int i = 0; i < maxIterations; i++)
             {
+                BackFrontResetEvent.WaitOne();
                 outPutTextBox.Text += (Thread.CurrentThread.IsBackground ?
                        "Background Thread" : "Foreground Thread") +
                        " count: " + i + "\r\n";
                 Thread.Sleep(100);
+                BackFrontResetEvent.Set();
             }
+            BackFrontResetEvent.WaitOne();
             outPutTextBox.Text += (Thread.CurrentThread.IsBackground ?
                               "Background Thread" : "Foreground Thread") +
                               " finished counting." + "\r\n";
+            BackFrontResetEvent.Set();
         }
 
         private void outPutTextBox_TextChanged(object sender, EventArgs e)
@@ -155,6 +159,56 @@ namespace CustomerProducer
             thread1.Start();
             thread2.Start();
             thread3.Start();
+        }
+
+        private void CusProButton_Click(object sender, EventArgs e)
+        {
+            ManualResetEvent BufferEvent = new ManualResetEvent(false);
+            ManualResetEvent EemptyEvent = new ManualResetEvent(false);
+
+            Random random = new Random();
+            int CustomerNum = random.Next() % 5 + 1;
+            int ProducerNum = random.Next() % 5 + 1;
+
+            int[] buffer = new int[100];
+            int index = -1;
+
+            Thread[] CustomerThreads = new Thread[CustomerNum];
+            Thread[] ProducerThreads = new Thread[ProducerNum];
+            for (int i = 0; i < CustomerNum; i++)
+            {
+                CustomerThreads[i] = new Thread(() =>
+                {
+                    int num = i;
+                    outPutTextBox.Text += "Cusomer" + num + " wants to eat" + "\r\n";
+                    EemptyEvent.WaitOne();
+                    BufferEvent.WaitOne();
+                    outPutTextBox.Text += "Cusomer" + num + " has eaten " + i + 
+                    ":" + buffer[i] + "\r\n";
+                    index--;
+                    if (index < 0) EemptyEvent.Reset();
+                    BufferEvent.Set();
+                });
+            }
+
+            for (int i = 0; i < ProducerNum; i++)
+            {
+                ProducerThreads[i] = new Thread(() =>
+                {
+                    int num = i;
+                    int product = random.Next() % 100 + 100;
+                    outPutTextBox.Text += "Producer" + num + " begin to produce" + product + "\r\n";
+                    BufferEvent.WaitOne();
+                    buffer[++index] = product;
+                    Thread.Sleep(1000);
+                    BufferEvent.Set();
+                    outPutTextBox.Text += "Producer" + num + " has produced" + "\r\n";
+                });
+            }
+            for (int i = 0; i < ProducerNum; i++)
+                ProducerThreads[i].Start();
+            for (int i = 0; i < CustomerNum; i++)
+                CustomerThreads[i].Start();
         }
     }
 }
