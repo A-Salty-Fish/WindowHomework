@@ -16,6 +16,7 @@ namespace CustomerProducer
         public Form1()
         {
             InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false;
         }
         static int CreateThreadCount = 0;
         private void CreateThreadButton_Click(object sender, EventArgs e)
@@ -46,14 +47,10 @@ namespace CustomerProducer
         {
             Thread foregroundThread =
                 new Thread(()=> {
-                    //Action action = () => { RunLoop(10); };
-                    //this.Invoke(action);
                     RunLoop(10);
                 });
             Thread backgroundThread =
                 new Thread(() => {
-                    //Action action = () => { RunLoop(50); };
-                    //this.Invoke(action);
                     RunLoop(50);
                 });
             backgroundThread.IsBackground = true;
@@ -73,16 +70,6 @@ namespace CustomerProducer
             outPutTextBox.Text += (Thread.CurrentThread.IsBackground ?
                               "Background Thread" : "Foreground Thread") +
                               " finished counting." + "\r\n";
-            //for (int i = 0; i < maxIterations; i++)
-            //{
-            //    Console.WriteLine("{0} count: {1}",
-            //        Thread.CurrentThread.IsBackground ?
-            //           "Background Thread" : "Foreground Thread", i);
-            //    Thread.Sleep(250);
-            //}
-            //Console.WriteLine("{0} finished counting.",
-            //                  Thread.CurrentThread.IsBackground ?
-            //                  "Background Thread" : "Foreground Thread");
         }
 
         private void outPutTextBox_TextChanged(object sender, EventArgs e)
@@ -103,6 +90,28 @@ namespace CustomerProducer
                 thread1.Join();
                 outPutTextBox.Text += "After Joining" + "\r\n";
             });
+            thread1.Start();
+            thread2.Start();
+        }
+       
+        private void AutoResetButton_Click(object sender, EventArgs e)
+        {
+            AutoResetEvent autoResetEvent = new AutoResetEvent(false);
+            int count = 0;
+            Thread thread1 = new Thread(() =>
+            {
+                outPutTextBox.Text += "BeforeReset:" + count + "\r\n";
+                Thread.Sleep(1000);
+                count = 1;
+                autoResetEvent.Set();
+            });
+
+            Thread thread2 = new Thread(() =>
+            {
+                autoResetEvent.WaitOne();
+                outPutTextBox.Text += "AfterReset:" + count + "\r\n";
+            });
+
             thread1.Start();
             thread2.Start();
         }

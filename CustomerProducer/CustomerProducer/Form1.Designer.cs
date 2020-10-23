@@ -112,6 +112,7 @@
             this.AutoResetButton.TabIndex = 5;
             this.AutoResetButton.Text = "AutoReset";
             this.AutoResetButton.UseVisualStyleBackColor = true;
+            this.AutoResetButton.Click += new System.EventHandler(this.AutoResetButton_Click);
             // 
             // outPutTextBox
             // 
