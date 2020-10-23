@@ -35,8 +35,8 @@
             this.JoinThreadButton = new System.Windows.Forms.Button();
             this.ManualResetButton = new System.Windows.Forms.Button();
             this.AutoResetButton = new System.Windows.Forms.Button();
-            this.outPutTextBox = new System.Windows.Forms.TextBox();
             this.CusProButton = new System.Windows.Forms.Button();
+            this.outPutTextBox = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,6 +103,7 @@
             this.ManualResetButton.TabIndex = 4;
             this.ManualResetButton.Text = "MaualReset";
             this.ManualResetButton.UseVisualStyleBackColor = true;
+            this.ManualResetButton.Click += new System.EventHandler(this.ManualResetButton_Click);
             // 
             // AutoResetButton
             // 
@@ -114,6 +115,15 @@
             this.AutoResetButton.UseVisualStyleBackColor = true;
             this.AutoResetButton.Click += new System.EventHandler(this.AutoResetButton_Click);
             // 
+            // CusProButton
+            // 
+            this.CusProButton.Location = new System.Drawing.Point(831, 3);
+            this.CusProButton.Name = "CusProButton";
+            this.CusProButton.Size = new System.Drawing.Size(132, 40);
+            this.CusProButton.TabIndex = 6;
+            this.CusProButton.Text = "生产者消费者";
+            this.CusProButton.UseVisualStyleBackColor = true;
+            // 
             // outPutTextBox
             // 
             this.outPutTextBox.Location = new System.Drawing.Point(15, 126);
@@ -123,15 +133,6 @@
             this.outPutTextBox.Size = new System.Drawing.Size(960, 248);
             this.outPutTextBox.TabIndex = 1;
             this.outPutTextBox.TextChanged += new System.EventHandler(this.outPutTextBox_TextChanged);
-            // 
-            // CusProButton
-            // 
-            this.CusProButton.Location = new System.Drawing.Point(831, 3);
-            this.CusProButton.Name = "CusProButton";
-            this.CusProButton.Size = new System.Drawing.Size(132, 40);
-            this.CusProButton.TabIndex = 6;
-            this.CusProButton.Text = "生产者消费者";
-            this.CusProButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

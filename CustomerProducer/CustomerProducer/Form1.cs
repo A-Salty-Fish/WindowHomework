@@ -104,16 +104,57 @@ namespace CustomerProducer
                 Thread.Sleep(1000);
                 count = 1;
                 autoResetEvent.Set();
+                Thread.Sleep(1000);
+                count = 2;
+                autoResetEvent.Set();
             });
 
             Thread thread2 = new Thread(() =>
             {
                 autoResetEvent.WaitOne();
-                outPutTextBox.Text += "AfterReset:" + count + "\r\n";
+                outPutTextBox.Text += "AfterReset1:" + count + "\r\n";
+            });
+
+            Thread thread3 = new Thread(() =>
+            {
+                autoResetEvent.WaitOne();
+                outPutTextBox.Text += "AfterReset2:" + count + "\r\n";
             });
 
             thread1.Start();
             thread2.Start();
+            thread3.Start();
+        }
+
+        private void ManualResetButton_Click(object sender, EventArgs e)
+        {
+            ManualResetEvent manualResetEvent = new ManualResetEvent(false);
+            int count = 10;
+            Thread thread1 = new Thread(() =>
+            {
+                outPutTextBox.Text += "BeforeReset:" + count + "\r\n";
+                Thread.Sleep(1000);
+                count = 11;
+                manualResetEvent.Set();
+                Thread.Sleep(1000);
+                
+                count = 12;
+                manualResetEvent.Set();
+            });
+            Thread thread2 = new Thread(() =>
+            {
+                manualResetEvent.WaitOne();
+                outPutTextBox.Text += "AfterReset1:" + count + "\r\n";
+            });
+            Thread thread3 = new Thread(() =>
+            {
+                manualResetEvent.WaitOne();
+                Thread.Sleep(1000);
+                outPutTextBox.Text += "AfterReset2:" + count + "\r\n";
+            });
+            thread1.Start();
+            thread2.Start();
+            thread3.Start();
         }
     }
 }
