@@ -16,4 +16,29 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     }
     return TRUE;
 }
+ 
+_declspec(dllexport) long fab(long n)
+{
+    if (n < 0) return -1;
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+    int first = 0;
+    int second = 1;
+    int result = second;
+    for (int i = 1; i < n; i++)
+    {
+        result = first + second;
+        first = second;
+        second = result;
+    }
+    return result;
+}
 
+_declspec(dllexport) long fac(long n)
+{
+    if (n < 0) return -1;
+    long result = 1;
+    for (int i = 1; i <= n; i++)
+        result = result * i;
+    return result;
+}
