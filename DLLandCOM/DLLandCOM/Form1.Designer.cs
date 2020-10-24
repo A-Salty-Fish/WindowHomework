@@ -50,6 +50,24 @@
             this.label2 = new System.Windows.Forms.Label();
             this.FacOutputTextBox = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.SumInput1TextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.SumInput2TextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.SumOutputTextBox = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.MulInput1TextBox = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.MulInput2TextBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.MulOutputTextBox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -59,6 +77,11 @@
             this.tabPage3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.flowLayoutPanel5.SuspendLayout();
+            this.flowLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -222,6 +245,7 @@
             this.FabOutputTextBox.Location = new System.Drawing.Point(549, 5);
             this.FabOutputTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 2);
             this.FabOutputTextBox.Name = "FabOutputTextBox";
+            this.FabOutputTextBox.ReadOnly = true;
             this.FabOutputTextBox.Size = new System.Drawing.Size(167, 30);
             this.FabOutputTextBox.TabIndex = 3;
             // 
@@ -273,11 +297,13 @@
             this.FacOutputTextBox.Location = new System.Drawing.Point(457, 4);
             this.FacOutputTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 2);
             this.FacOutputTextBox.Name = "FacOutputTextBox";
+            this.FacOutputTextBox.ReadOnly = true;
             this.FacOutputTextBox.Size = new System.Drawing.Size(259, 30);
             this.FacOutputTextBox.TabIndex = 3;
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.tabControl3);
             this.tabPage4.Location = new System.Drawing.Point(4, 28);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -286,11 +312,202 @@
             this.tabPage4.Text = "COM";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage5);
+            this.tabControl3.Controls.Add(this.tabPage6);
+            this.tabControl3.Controls.Add(this.tabPage7);
+            this.tabControl3.Location = new System.Drawing.Point(6, 4);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(763, 261);
+            this.tabControl3.TabIndex = 0;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.flowLayoutPanel6);
+            this.tabPage5.Controls.Add(this.flowLayoutPanel5);
+            this.tabPage5.Location = new System.Drawing.Point(4, 28);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(755, 229);
+            this.tabPage5.TabIndex = 0;
+            this.tabPage5.Text = "自定义";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 28);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(755, 229);
+            this.tabPage6.TabIndex = 1;
+            this.tabPage6.Text = "Word";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Location = new System.Drawing.Point(4, 28);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(755, 229);
+            this.tabPage7.TabIndex = 2;
+            this.tabPage7.Text = "Excel";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.Controls.Add(this.label5);
+            this.flowLayoutPanel5.Controls.Add(this.SumInput1TextBox);
+            this.flowLayoutPanel5.Controls.Add(this.label6);
+            this.flowLayoutPanel5.Controls.Add(this.SumInput2TextBox);
+            this.flowLayoutPanel5.Controls.Add(this.label7);
+            this.flowLayoutPanel5.Controls.Add(this.SumOutputTextBox);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(7, 42);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(742, 47);
+            this.flowLayoutPanel5.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("宋体", 15F);
+            this.label5.Location = new System.Drawing.Point(3, 5);
+            this.label5.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(103, 30);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "求和  ";
+            // 
+            // SumInput1TextBox
+            // 
+            this.SumInput1TextBox.Font = new System.Drawing.Font("宋体", 15F);
+            this.SumInput1TextBox.Location = new System.Drawing.Point(112, 2);
+            this.SumInput1TextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
+            this.SumInput1TextBox.Name = "SumInput1TextBox";
+            this.SumInput1TextBox.Size = new System.Drawing.Size(108, 42);
+            this.SumInput1TextBox.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("宋体", 15F);
+            this.label6.Location = new System.Drawing.Point(226, 7);
+            this.label6.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(28, 30);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "+";
+            // 
+            // SumInput2TextBox
+            // 
+            this.SumInput2TextBox.Font = new System.Drawing.Font("宋体", 15F);
+            this.SumInput2TextBox.Location = new System.Drawing.Point(260, 2);
+            this.SumInput2TextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
+            this.SumInput2TextBox.Name = "SumInput2TextBox";
+            this.SumInput2TextBox.Size = new System.Drawing.Size(108, 42);
+            this.SumInput2TextBox.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("宋体", 15F);
+            this.label7.Location = new System.Drawing.Point(374, 7);
+            this.label7.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(28, 30);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "=";
+            // 
+            // SumOutputTextBox
+            // 
+            this.SumOutputTextBox.Font = new System.Drawing.Font("宋体", 15F);
+            this.SumOutputTextBox.Location = new System.Drawing.Point(408, 2);
+            this.SumOutputTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
+            this.SumOutputTextBox.Name = "SumOutputTextBox";
+            this.SumOutputTextBox.ReadOnly = true;
+            this.SumOutputTextBox.Size = new System.Drawing.Size(108, 42);
+            this.SumOutputTextBox.TabIndex = 5;
+            // 
+            // flowLayoutPanel6
+            // 
+            this.flowLayoutPanel6.Controls.Add(this.label8);
+            this.flowLayoutPanel6.Controls.Add(this.MulInput1TextBox);
+            this.flowLayoutPanel6.Controls.Add(this.label9);
+            this.flowLayoutPanel6.Controls.Add(this.MulInput2TextBox);
+            this.flowLayoutPanel6.Controls.Add(this.label10);
+            this.flowLayoutPanel6.Controls.Add(this.MulOutputTextBox);
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(7, 135);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(742, 47);
+            this.flowLayoutPanel6.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("宋体", 15F);
+            this.label8.Location = new System.Drawing.Point(3, 5);
+            this.label8.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(103, 30);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "求乘  ";
+            // 
+            // MulInput1TextBox
+            // 
+            this.MulInput1TextBox.Font = new System.Drawing.Font("宋体", 15F);
+            this.MulInput1TextBox.Location = new System.Drawing.Point(112, 2);
+            this.MulInput1TextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
+            this.MulInput1TextBox.Name = "MulInput1TextBox";
+            this.MulInput1TextBox.Size = new System.Drawing.Size(108, 42);
+            this.MulInput1TextBox.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("宋体", 15F);
+            this.label9.Location = new System.Drawing.Point(226, 7);
+            this.label9.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(28, 30);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "+";
+            // 
+            // MulInput2TextBox
+            // 
+            this.MulInput2TextBox.Font = new System.Drawing.Font("宋体", 15F);
+            this.MulInput2TextBox.Location = new System.Drawing.Point(260, 2);
+            this.MulInput2TextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
+            this.MulInput2TextBox.Name = "MulInput2TextBox";
+            this.MulInput2TextBox.Size = new System.Drawing.Size(108, 42);
+            this.MulInput2TextBox.TabIndex = 3;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("宋体", 15F);
+            this.label10.Location = new System.Drawing.Point(374, 7);
+            this.label10.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(28, 30);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "=";
+            // 
+            // MulOutputTextBox
+            // 
+            this.MulOutputTextBox.Font = new System.Drawing.Font("宋体", 15F);
+            this.MulOutputTextBox.Location = new System.Drawing.Point(408, 2);
+            this.MulOutputTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
+            this.MulOutputTextBox.Name = "MulOutputTextBox";
+            this.MulOutputTextBox.ReadOnly = true;
+            this.MulOutputTextBox.Size = new System.Drawing.Size(108, 42);
+            this.MulOutputTextBox.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 318);
             this.Controls.Add(this.tabControl2);
             this.Name = "Form1";
             this.Text = "第三周实验";
@@ -305,6 +522,13 @@
             this.flowLayoutPanel4.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.flowLayoutPanel5.ResumeLayout(false);
+            this.flowLayoutPanel5.PerformLayout();
+            this.flowLayoutPanel6.ResumeLayout(false);
+            this.flowLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -333,6 +557,24 @@
         private System.Windows.Forms.TextBox FabInputTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox FabOutputTextBox;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox SumInput1TextBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox SumInput2TextBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox SumOutputTextBox;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox MulInput1TextBox;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox MulInput2TextBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox MulOutputTextBox;
     }
 }
 
