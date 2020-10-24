@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using XYDES;
 
 namespace CustomerProducer
 {
@@ -214,5 +215,77 @@ namespace CustomerProducer
             for (int i = 0; i < ProducerNum; i++) producerThreads[i].Start(i);
             for (int i = 0; i < CustomerNum; i++) customerThreads[i].Start(i);
         }
+
+
+        public void Capture_screen()
+        {
+            long TickOld = System.Environment.TickCount;
+            ManualResetEvent[] me_cap = new ManualResetEvent[2];
+            int s_wid = (int)(Screen.PrimaryScreen.Bounds.Width * XYDES.PrimaryScreen.ScaleX);
+            int s_height = (int)(Screen.PrimaryScreen.Bounds.Height * XYDES.PrimaryScreen.ScaleY);
+            Bitmap b_1 = new Bitmap(s_wid, s_height);
+            Graphics g_ = Graphics.FromImage(b_1);
+            String init_dir_fn = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            String dest_fn = init_dir_fn +
+                "\\TestScreenShots\\" +
+                TickOld +
+                "dzy.bmp";
+            //g_.CopyFromScreen(new Point(0, 0), new Point(0, 0), new Size(s_wid,s_height));
+            g_.CopyFromScreen(new Point(0, 0), new Point(0, 0), new Size(s_wid, s_height));
+            b_1.Save(dest_fn, System.Drawing.Imaging.ImageFormat.Bmp);
+            Thread.Sleep(1000);
+            ThreadTextBox("完成抓屏:" + dest_fn + "\r\n");
+        }
+
+        ManualResetEvent[] capture_events = new ManualResetEvent[2];
+        ManualResetEvent capture_terminate = new ManualResetEvent(false);
+        ManualResetEvent capture_this = new ManualResetEvent(false);
+        Thread captureThread = null;
+
+        public void Capture_Screen_Thread()
+        {
+            int index = ManualResetEvent.WaitAny(capture_events, -1);
+            if (index == 0) captureThread.Abort();
+            else
+            {
+                Capture_screen();
+            }
+        }
+
+        private void CreateScreenshotsButton_Click(object sender, EventArgs e)
+        {
+            capture_events[0] = capture_terminate;
+            capture_events[1] = capture_this;
+            if (captureThread == null)
+            {
+                ThreadTextBox("创建抓屏线程" + "\r\n");
+                captureThread = new Thread(() =>
+                {
+                    while (true)
+                    Capture_Screen_Thread();
+                });
+            }
+            captureThread.Start();
+        }
+
+        private void StartScreenshotsButton_Click(object sender, EventArgs e)
+        {
+            if (captureThread == null)
+            {
+                ThreadTextBox("还未创建抓屏线程" + "\r\n");
+                return;
+            }
+            ThreadTextBox("开始抓屏" + "\r\n");
+            Thread.Sleep(500);
+            capture_events[1].Set();
+        }
+
+        private void EndScreenshotsButton_Click(object sender, EventArgs e)
+        {
+            ThreadTextBox("结束抓屏" + "\r\n");
+            capture_events[0].Set();
+        }
+
+
     }
 }
