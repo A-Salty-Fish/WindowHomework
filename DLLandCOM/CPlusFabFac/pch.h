@@ -9,5 +9,6 @@
 
 // 添加要在此处预编译的标头
 #include "framework.h"
-
+extern "C" _declspec(dllexport) int __stdcall fab(int n);
+extern "C" _declspec(dllexport) int __stdcall fac(int n);
 #endif //PCH_H

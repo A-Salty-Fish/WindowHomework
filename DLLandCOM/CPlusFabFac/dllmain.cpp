@@ -17,7 +17,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     return TRUE;
 }
  
-_declspec(dllexport) long fab(long n)
+int __stdcall fab(int n)
 {
     if (n < 0) return -1;
     if (n == 0) return 0;
@@ -34,7 +34,7 @@ _declspec(dllexport) long fab(long n)
     return result;
 }
 
-_declspec(dllexport) long fac(long n)
+int __stdcall fac(int n)
 {
     if (n < 0) return -1;
     long result = 1;

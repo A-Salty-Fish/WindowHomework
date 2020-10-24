@@ -1,0 +1,6 @@
+LIBRARY "CPlusFabFac"
+
+EXPORTS
+
+fab @4
+fac @5

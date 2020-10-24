@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -63,26 +64,31 @@ namespace DLLandCOM
                 }
             }
         }
-
+        [DllImport("CPlusFabFac.dll", EntryPoint= "_fab@4")]
+        public static extern int fab(int n);
+        [DllImport("CPlusFabFac.dll", EntryPoint = "_fac@4")]
+        public static extern int fac(int n);
         private void UnmanagedFacButton_Click(object sender, EventArgs e)
         {
-            long input;
-            bool isInputLegal = long.TryParse(FacInputTextBox.Text, out input);
+            int input;
+            bool isInputLegal = int.TryParse(FacInputTextBox.Text, out input);
             if (!isInputLegal) FacOutputTextBox.Text = "Illegal input";
             else
             {
-
+                int result = fac(input);
+                FacOutputTextBox.Text = "" + result;
             }
         }
 
         private void UnmanagedFabButton_Click(object sender, EventArgs e)
         {
-            long input;
-            bool isInputLegal = long.TryParse(FabInputTextBox.Text, out input);
+            int input;
+            bool isInputLegal = int.TryParse(FabInputTextBox.Text, out input);
             if (!isInputLegal) FabOutputTextBox.Text = "Illegal input";
             else
             {
-
+                int result = fab(input);
+                FabOutputTextBox.Text = "" + result;
             }
         }
     }
