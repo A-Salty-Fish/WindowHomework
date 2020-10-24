@@ -30,35 +30,35 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.ManagedFacButton = new System.Windows.Forms.Button();
             this.ManagedFabButton = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.UnmanagedFacButton = new System.Windows.Forms.Button();
             this.UnmanagedFabButton = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.FacInputTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.FacOutputTextBox = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.FabInputTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.FabOutputTextBox = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.FacInputTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.FacOutputTextBox = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -81,17 +81,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "托管";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.flowLayoutPanel2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(759, 53);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "非托管";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel1
             // 
@@ -122,6 +111,17 @@
             this.ManagedFabButton.UseVisualStyleBackColor = true;
             this.ManagedFabButton.Click += new System.EventHandler(this.ManagedFabButton_Click);
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.flowLayoutPanel2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(759, 53);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "非托管";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.UnmanagedFacButton);
@@ -139,6 +139,7 @@
             this.UnmanagedFacButton.TabIndex = 0;
             this.UnmanagedFacButton.Text = "阶乘";
             this.UnmanagedFacButton.UseVisualStyleBackColor = true;
+            this.UnmanagedFacButton.Click += new System.EventHandler(this.UnmanagedFacButton_Click);
             // 
             // UnmanagedFabButton
             // 
@@ -148,6 +149,7 @@
             this.UnmanagedFabButton.TabIndex = 1;
             this.UnmanagedFabButton.Text = "斐波那契";
             this.UnmanagedFabButton.UseVisualStyleBackColor = true;
+            this.UnmanagedFabButton.Click += new System.EventHandler(this.UnmanagedFabButton_Click);
             // 
             // tabControl2
             // 
@@ -171,67 +173,6 @@
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "DLL";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 28);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(776, 271);
-            this.tabPage4.TabIndex = 1;
-            this.tabPage4.Text = "COM";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.label1);
-            this.flowLayoutPanel3.Controls.Add(this.FacInputTextBox);
-            this.flowLayoutPanel3.Controls.Add(this.label2);
-            this.flowLayoutPanel3.Controls.Add(this.FacOutputTextBox);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(7, 123);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(759, 42);
-            this.flowLayoutPanel3.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 14F);
-            this.label1.Location = new System.Drawing.Point(3, 5);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 28);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "阶乘输入：";
-            // 
-            // FacInputTextBox
-            // 
-            this.FacInputTextBox.Font = new System.Drawing.Font("宋体", 10F);
-            this.FacInputTextBox.Location = new System.Drawing.Point(161, 4);
-            this.FacInputTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 2);
-            this.FacInputTextBox.Name = "FacInputTextBox";
-            this.FacInputTextBox.Size = new System.Drawing.Size(132, 30);
-            this.FacInputTextBox.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("宋体", 14F);
-            this.label2.Location = new System.Drawing.Point(299, 5);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(152, 28);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "阶乘输出：";
-            // 
-            // FacOutputTextBox
-            // 
-            this.FacOutputTextBox.Font = new System.Drawing.Font("宋体", 10F);
-            this.FacOutputTextBox.Location = new System.Drawing.Point(457, 4);
-            this.FacOutputTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 2);
-            this.FacOutputTextBox.Name = "FacOutputTextBox";
-            this.FacOutputTextBox.Size = new System.Drawing.Size(259, 30);
-            this.FacOutputTextBox.TabIndex = 3;
             // 
             // flowLayoutPanel4
             // 
@@ -284,6 +225,67 @@
             this.FabOutputTextBox.Size = new System.Drawing.Size(167, 30);
             this.FabOutputTextBox.TabIndex = 3;
             // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.label1);
+            this.flowLayoutPanel3.Controls.Add(this.FacInputTextBox);
+            this.flowLayoutPanel3.Controls.Add(this.label2);
+            this.flowLayoutPanel3.Controls.Add(this.FacOutputTextBox);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(7, 123);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(759, 42);
+            this.flowLayoutPanel3.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 14F);
+            this.label1.Location = new System.Drawing.Point(3, 5);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(152, 28);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "阶乘输入：";
+            // 
+            // FacInputTextBox
+            // 
+            this.FacInputTextBox.Font = new System.Drawing.Font("宋体", 10F);
+            this.FacInputTextBox.Location = new System.Drawing.Point(161, 4);
+            this.FacInputTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 2);
+            this.FacInputTextBox.Name = "FacInputTextBox";
+            this.FacInputTextBox.Size = new System.Drawing.Size(132, 30);
+            this.FacInputTextBox.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 14F);
+            this.label2.Location = new System.Drawing.Point(299, 5);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(152, 28);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "阶乘输出：";
+            // 
+            // FacOutputTextBox
+            // 
+            this.FacOutputTextBox.Font = new System.Drawing.Font("宋体", 10F);
+            this.FacOutputTextBox.Location = new System.Drawing.Point(457, 4);
+            this.FacOutputTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 2);
+            this.FacOutputTextBox.Name = "FacOutputTextBox";
+            this.FacOutputTextBox.Size = new System.Drawing.Size(259, 30);
+            this.FacOutputTextBox.TabIndex = 3;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 28);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(776, 271);
+            this.tabPage4.TabIndex = 1;
+            this.tabPage4.Text = "COM";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -294,15 +296,15 @@
             this.Text = "第三周实验";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
-            this.flowLayoutPanel3.ResumeLayout(false);
-            this.flowLayoutPanel3.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }

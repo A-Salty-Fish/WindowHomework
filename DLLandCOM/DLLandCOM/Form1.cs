@@ -63,5 +63,27 @@ namespace DLLandCOM
                 }
             }
         }
+
+        private void UnmanagedFacButton_Click(object sender, EventArgs e)
+        {
+            long input;
+            bool isInputLegal = long.TryParse(FacInputTextBox.Text, out input);
+            if (!isInputLegal) FacOutputTextBox.Text = "Illegal input";
+            else
+            {
+
+            }
+        }
+
+        private void UnmanagedFabButton_Click(object sender, EventArgs e)
+        {
+            long input;
+            bool isInputLegal = long.TryParse(FabInputTextBox.Text, out input);
+            if (!isInputLegal) FabOutputTextBox.Text = "Illegal input";
+            else
+            {
+
+            }
+        }
     }
 }
