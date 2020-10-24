@@ -110,6 +110,7 @@
             this.ManagedFacButton.TabIndex = 2;
             this.ManagedFacButton.Text = "反射阶乘";
             this.ManagedFacButton.UseVisualStyleBackColor = true;
+            this.ManagedFacButton.Click += new System.EventHandler(this.ManagedFacButton_Click);
             // 
             // ManagedFabButton
             // 
@@ -119,6 +120,7 @@
             this.ManagedFabButton.TabIndex = 3;
             this.ManagedFabButton.Text = "反射斐波那契";
             this.ManagedFabButton.UseVisualStyleBackColor = true;
+            this.ManagedFabButton.Click += new System.EventHandler(this.ManagedFabButton_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -208,14 +210,14 @@
             this.FacInputTextBox.Location = new System.Drawing.Point(161, 4);
             this.FacInputTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 2);
             this.FacInputTextBox.Name = "FacInputTextBox";
-            this.FacInputTextBox.Size = new System.Drawing.Size(112, 30);
+            this.FacInputTextBox.Size = new System.Drawing.Size(132, 30);
             this.FacInputTextBox.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 14F);
-            this.label2.Location = new System.Drawing.Point(279, 5);
+            this.label2.Location = new System.Drawing.Point(299, 5);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(152, 28);
@@ -225,10 +227,10 @@
             // FacOutputTextBox
             // 
             this.FacOutputTextBox.Font = new System.Drawing.Font("宋体", 10F);
-            this.FacOutputTextBox.Location = new System.Drawing.Point(437, 4);
+            this.FacOutputTextBox.Location = new System.Drawing.Point(457, 4);
             this.FacOutputTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 2);
             this.FacOutputTextBox.Name = "FacOutputTextBox";
-            this.FacOutputTextBox.Size = new System.Drawing.Size(112, 30);
+            this.FacOutputTextBox.Size = new System.Drawing.Size(259, 30);
             this.FacOutputTextBox.TabIndex = 3;
             // 
             // flowLayoutPanel4
@@ -279,7 +281,7 @@
             this.FabOutputTextBox.Location = new System.Drawing.Point(549, 5);
             this.FabOutputTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 2);
             this.FabOutputTextBox.Name = "FabOutputTextBox";
-            this.FabOutputTextBox.Size = new System.Drawing.Size(112, 30);
+            this.FabOutputTextBox.Size = new System.Drawing.Size(167, 30);
             this.FabOutputTextBox.TabIndex = 3;
             // 
             // Form1
