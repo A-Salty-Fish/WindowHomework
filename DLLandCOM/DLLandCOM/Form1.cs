@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MyCOM;
 
 namespace DLLandCOM
 {
@@ -91,5 +92,34 @@ namespace DLLandCOM
                 FabOutputTextBox.Text = "" + result;
             }
         }
+
+        Class1 class1 = new Class1();
+        private void label5_Click(object sender, EventArgs e)
+        {
+            int input1, input2;
+            if (!int.TryParse(SumInput1TextBox.Text,out input1) || !int.TryParse(SumInput2TextBox.Text, out input2))
+            {
+                SumOutputTextBox.Text = "Illegal Input";
+            }
+            else
+            {
+                SumOutputTextBox.Text = "" + class1.Add(input1, input2);
+            }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            int input1, input2;
+            if (!int.TryParse(MulInput1TextBox.Text, out input1) || !int.TryParse(MulInput2TextBox.Text, out input2))
+            {
+                MulOutputTextBox.Text = "Illegal Input";
+            }
+            else
+            {
+                MulOutputTextBox.Text = "" + class1.Mul(input1, input2);
+            }
+        }
+
+
     }
 }
