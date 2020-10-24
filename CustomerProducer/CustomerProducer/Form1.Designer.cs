@@ -131,7 +131,7 @@
             this.outPutTextBox.Multiline = true;
             this.outPutTextBox.Name = "outPutTextBox";
             this.outPutTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.outPutTextBox.Size = new System.Drawing.Size(960, 248);
+            this.outPutTextBox.Size = new System.Drawing.Size(960, 574);
             this.outPutTextBox.TabIndex = 1;
             this.outPutTextBox.TextChanged += new System.EventHandler(this.outPutTextBox_TextChanged);
             // 
@@ -139,7 +139,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 383);
+            this.ClientSize = new System.Drawing.Size(1002, 712);
             this.Controls.Add(this.outPutTextBox);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "Form1";
