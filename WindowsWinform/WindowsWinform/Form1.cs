@@ -216,6 +216,7 @@ namespace WindowsWinform
 
         private void button4_Click(object sender, EventArgs e)
         {
+            outputTextBox.Text = null;
             RealAction("ping.exe", inputTextBox.Text);
         }
         private void CmdProcess_Exited(object sender, EventArgs e)
