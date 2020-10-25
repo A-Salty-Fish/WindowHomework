@@ -9,7 +9,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MyCOM;
+using AddMul = MyCOM.Class1;
+using MsWord = Microsoft.Office.Core;
 
 namespace DLLandCOM
 {
@@ -93,7 +94,8 @@ namespace DLLandCOM
             }
         }
 
-        Class1 class1 = new Class1();
+
+        AddMul class1 = new AddMul();
         private void label5_Click(object sender, EventArgs e)
         {
             int input1, input2;
