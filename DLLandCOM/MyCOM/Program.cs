@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace MyCOM
 {
     [Guid("F28527C8-ED50-4D97-861B-699E29E2D747")]
+    [ComVisible(true)]
     public interface MyCom_Interface
     {
         [DispId(1)]
@@ -17,6 +18,7 @@ namespace MyCOM
     }
     [Guid("295929D8-0820-433F-AF8F-C27F2818B5C4"),
     InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
+    [ComVisible(true)]
     public interface MyCom_Events
     {
     }
