@@ -67,6 +67,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.SumOutputTextBox = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
+            this.WordButton = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -82,6 +84,8 @@
             this.tabPage5.SuspendLayout();
             this.flowLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.flowLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -487,6 +491,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.flowLayoutPanel7);
             this.tabPage6.Location = new System.Drawing.Point(4, 28);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -494,6 +499,24 @@
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Word";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel7
+            // 
+            this.flowLayoutPanel7.Controls.Add(this.WordButton);
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(7, 7);
+            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(742, 40);
+            this.flowLayoutPanel7.TabIndex = 0;
+            // 
+            // WordButton
+            // 
+            this.WordButton.Location = new System.Drawing.Point(3, 3);
+            this.WordButton.Name = "WordButton";
+            this.WordButton.Size = new System.Drawing.Size(138, 32);
+            this.WordButton.TabIndex = 0;
+            this.WordButton.Text = "Word COM 操作";
+            this.WordButton.UseVisualStyleBackColor = true;
+            this.WordButton.Click += new System.EventHandler(this.NewWordButton_Click);
             // 
             // tabPage7
             // 
@@ -531,6 +554,8 @@
             this.flowLayoutPanel6.PerformLayout();
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.flowLayoutPanel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -577,6 +602,8 @@
         private System.Windows.Forms.TextBox MulInput2TextBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox MulOutputTextBox;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
+        private System.Windows.Forms.Button WordButton;
     }
 }
 
