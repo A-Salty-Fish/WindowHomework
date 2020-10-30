@@ -217,7 +217,7 @@ namespace WindowsWinform
         private void button4_Click(object sender, EventArgs e)
         {
             outputTextBox.Text = null;
-            RealAction("ping.exe", inputTextBox.Text);
+            RealAction("ping.exe", inputTextBox.Text + " -n 9");
         }
         private void CmdProcess_Exited(object sender, EventArgs e)
         {

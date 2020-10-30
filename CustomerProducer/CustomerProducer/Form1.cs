@@ -69,7 +69,7 @@ namespace CustomerProducer
                 ThreadTextBox((Thread.CurrentThread.IsBackground ?
                        "Background Thread" : "Foreground Thread") +
                        " count: " + i + "\r\n");
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
             }
             ThreadTextBox((Thread.CurrentThread.IsBackground ?
                               "Background Thread" : "Foreground Thread") +
@@ -245,7 +245,10 @@ namespace CustomerProducer
         public void Capture_Screen_Thread()
         {
             int index = ManualResetEvent.WaitAny(capture_events, -1);
-            if (index == 0) captureThread.Abort();
+            if (index == 0) {
+                ThreadTextBox("结束抓屏" + "\r\n");
+                captureThread.Abort();
+            }
             else
             {
                 Capture_screen();
@@ -282,7 +285,6 @@ namespace CustomerProducer
 
         private void EndScreenshotsButton_Click(object sender, EventArgs e)
         {
-            ThreadTextBox("结束抓屏" + "\r\n");
             capture_events[0].Set();
         }
 

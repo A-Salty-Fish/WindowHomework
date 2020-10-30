@@ -128,48 +128,7 @@ namespace DLLandCOM
 
         private void NewWordButton_Click(object sender, EventArgs e)
         {
-            MsWord.Application oWordApplic;
-            MsWord.Document oDoc;
-            try
-            {
-                string doc_file_name = @"\content.doc";
-                //存在旧word文档则删除
-                if (File.Exists(doc_file_name))
-                {
-                    File.Delete(doc_file_name);
-                }
-                oWordApplic = new MsWord.Application();
-                object missing = System.Reflection.Missing.Value;//参数默认值
-                //创建word文档的小节
-                MsWord.Range curRange;
-                object curTxt;
-                int curSectionNum = 1;
-                oDoc = oWordApplic.Documents.Add(ref missing, ref missing, ref missing, ref missing);
-                oDoc.Activate();
-                Console.WriteLine("正在生成文档小节");
-                object section_nextPage = MsWord.WdBreakType.wdSectionBreakNextPage;
-                object page_break = MsWord.WdBreakType.wdPageBreak;
-                for (int si = 0;si <4;si++)
-                {
-                    oDoc.Paragraphs[1].Range.InsertParagraphAfter();
-                    oDoc.Paragraphs[1].Range.InsertBreak(ref section_nextPage);
-                }
-                //保存文件
-                oDoc.Fields[1].Update();
-                object fileName = doc_file_name;
-                oDoc.SaveAs2(ref fileName);
-                oDoc.Close();
-                //释放Document对象和Application对象
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oDoc);
-                oDoc = null;
-                oWordApplic.Quit();
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oWordApplic);
-                oWordApplic = null;
-            }
-            catch(Exception e2)
-            {
-                MessageBox.Show(e2.Message);
-            }
         }
+
     }
 }
