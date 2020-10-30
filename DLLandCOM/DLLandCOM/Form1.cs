@@ -130,5 +130,19 @@ namespace DLLandCOM
         {
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Assembly assembly = Assembly.LoadFrom("FacFab.dll");
+            foreach (var t in assembly.GetTypes())
+            {
+                if (t.IsClass && !t.IsAbstract)
+                {
+                    foreach (var x in t.GetMethods())
+                    {
+                        textBox1.Text += x.Name + "\r\n";
+                    }
+                }
+            }
+        }
     }
 }

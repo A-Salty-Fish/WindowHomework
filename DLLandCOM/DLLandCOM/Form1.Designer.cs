@@ -70,6 +70,8 @@
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this.WordButton = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -100,6 +102,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.flowLayoutPanel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
@@ -113,9 +116,10 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.ManagedFacButton);
             this.flowLayoutPanel1.Controls.Add(this.ManagedFabButton);
+            this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 6);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(262, 42);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(405, 42);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // ManagedFacButton
@@ -528,6 +532,25 @@
             this.tabPage7.Text = "Excel";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(263, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 34);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "反射函数";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(415, 7);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(338, 36);
+            this.textBox1.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -538,6 +561,7 @@
             this.Text = "第三周实验";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
@@ -604,6 +628,8 @@
         private System.Windows.Forms.TextBox MulOutputTextBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
         private System.Windows.Forms.Button WordButton;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
