@@ -166,6 +166,11 @@
   <ItemGroup>
     <None Include="dllmain.def" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyCOM\MyCOM.csproj">
+      <Project>{292fc9aa-1b7f-49d1-ab4b-dbf6c2f47e83}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
